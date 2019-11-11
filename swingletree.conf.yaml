@@ -1,0 +1,6 @@
+twistlock:
+  context: security/twistlock
+  port: 4010
+
+  urls:
+    scotty: http://localhost:5000
