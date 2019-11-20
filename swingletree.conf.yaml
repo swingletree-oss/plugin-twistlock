@@ -3,4 +3,4 @@ twistlock:
   port: 4010
 
   urls:
-    scotty: # scotty base url
+    scotty: http://scotty:3000 # scotty base url
