@@ -68,7 +68,7 @@ class TwistlockWebhook {
     if (this.isWebhookEventRelevant(reportData)) {
       log.debug("sending report to Scotty...");
       try {
-        await this.statusEmitter.sendReport(reportData, source);
+        await this.statusEmitter.sendReport(reportData, source, message.meta.buildUuid);
       } catch (err) {
         log.warn("failed sending analysis report to Scotty. %j", err);
       }

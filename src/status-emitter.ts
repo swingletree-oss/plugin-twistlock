@@ -62,7 +62,7 @@ class TwistlockStatusEmitter {
     return conclusion;
   }
 
-  public async sendReport(report: TwistlockModel.Report, source: Harness.ScmSource) {
+  public async sendReport(report: TwistlockModel.Report, source: Harness.ScmSource, uid: string) {
 
     const repoConfig = await this.scottyClient.getRepositoryConfig(source);
     const config = new TwistlockModel.DefaultRepoConfig(repoConfig.getPluginConfig("twistlock") as any);
@@ -84,6 +84,7 @@ class TwistlockStatusEmitter {
     const analysisReport: Harness.AnalysisReport = {
       sender: this.context,
       source: source,
+      uuid: uid,
       checkStatus: this.getConclusion(annotations),
       title: `${issueReport.issuesCount()} issues found`,
       annotations: annotations
