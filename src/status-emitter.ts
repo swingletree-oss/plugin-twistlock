@@ -95,7 +95,11 @@ class TwistlockStatusEmitter {
       templateData
     );
 
-    return await this.scottyClient.sendReport(analysisReport);
+    try {
+      return await this.scottyClient.sendReport(analysisReport);
+    } catch (error) {
+      log.error("could not send payload to scotty.\n%j", error);
+    }
   }
 }
 
